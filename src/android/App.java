@@ -3,7 +3,7 @@ package com.medlei;
 import android.app.Application;
 import android.util.Log;
 
-import org.apache.cordova.core.ParsePlugin;
+import com.medlei.ParsePlugin;
 
 public class App extends Application {
 
