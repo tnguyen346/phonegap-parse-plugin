@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-           id="com.parse.cordova.core.pushplugin"
+           id="com.medlei.pushplugin"
       version="0.1.0">
     <name>phonegap-parse-plugin</name>
     <description>phonegap parse plugin</description>
@@ -17,7 +17,7 @@
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="ParsePlugin">
-                <param name="android-package" value="org.apache.cordova.core.ParsePlugin" />
+                <param name="android-package" value="com.medlei.ParsePlugin" />
             </feature>
         </config-file>
 
@@ -29,7 +29,7 @@
               <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
           </receiver>
-          <receiver android:exported="false" android:name="org.apache.cordova.core.ParsePluginReceiver">
+          <receiver android:exported="false" android:name="com.medlei.ParsePluginReceiver">
             <intent-filter>
                 <action android:name="com.parse.push.intent.RECEIVE" />
                 <action android:name="com.parse.push.intent.DELETE" />

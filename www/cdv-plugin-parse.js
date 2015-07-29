@@ -10,13 +10,22 @@ var parsePlugin = {
         );
     },
 
-    initialize: function(appId, clientKey, successCallback, errorCallback) {
+    initialize: function(appId, clientKey, installData, successCallback, errorCallback) {
+        var params;
+        if(typeof(installData) != "object") {
+            errorCallback = successCallback;
+            successCallback = installData;
+            installData = undefined;
+            params = [appId, clientKey];
+        } else {
+            params = [appId, clientKey, installData];
+        }
         cordova.exec(
             successCallback,
             errorCallback,
             'ParsePlugin',
             'initialize',
-            [appId, clientKey]
+            params
         );
     },
 
@@ -70,7 +79,7 @@ var parsePlugin = {
         );
     },
 
-    // iOS only
+    // iOS and Android only
     resetBadge: function(successCallback, errorCallback) {
         cordova.exec(
             successCallback,

@@ -1,8 +1,9 @@
-package org.apache.cordova.core;
+package com.medlei;
 
 import android.app.Application;
 import android.util.Log;
 
+import java.util.Iterator;
 import java.util.Set;
 
 import org.apache.cordova.CallbackContext;
@@ -31,6 +32,7 @@ public class ParsePlugin extends CordovaPlugin {
     private static final String ACTION_SUBSCRIBE = "subscribe";
     private static final String ACTION_UNSUBSCRIBE = "unsubscribe";
     private static final String ACTION_REGISTER_CALLBACK = "registerCallback";
+    private static final String ACTION_RESET_BADGE = "resetBadge";
 
     private static CordovaWebView sWebView;
     private static String sEventCallback = null;
@@ -81,6 +83,12 @@ public class ParsePlugin extends CordovaPlugin {
             this.unsubscribe(args.getString(0), callbackContext);
             return true;
         }
+        if (action.equals(ACTION_RESET_BADGE)) {
+            ParsePluginReceiver.resetBadge(
+                    this.cordova.getActivity().getApplicationContext()
+            );
+            return true;
+        }
         return false;
     }
 
@@ -105,8 +113,23 @@ public class ParsePlugin extends CordovaPlugin {
                 try {
                     String appId = args.getString(0);
                     String clientKey = args.getString(1);
+                    JSONObject installObj = null;
+                    if(args.length() > 2 ) {
+                        installObj = args.getJSONObject(2);
+                    }
                     Parse.initialize(cordova.getActivity(), appId, clientKey);
-                    ParseInstallation.getCurrentInstallation().saveInBackground();
+
+                    ParseInstallation currentInstallation = ParseInstallation.getCurrentInstallation();
+                    if( installObj != null ) {
+                        Iterator<String> installIter = installObj.keys();
+                        while (installIter.hasNext()) {
+                            String key = installIter.next();
+                            Object val = installObj.get(key);
+                            currentInstallation.put(key, val);
+                        }
+                    }
+                    currentInstallation.saveInBackground();
+
                     callbackContext.success();
                 } catch (JSONException e) {
                     callbackContext.error("JSONException");
