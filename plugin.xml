@@ -2,13 +2,18 @@
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
            id="com.medlei.pushplugin"
-      version="0.1.0">
+      version="0.1.1">
     <name>phonegap-parse-plugin</name>
     <description>phonegap parse plugin</description>
 
     <js-module src="www/cdv-plugin-parse.js" name="ParsePlugin">
         <clobbers target="window.parsePlugin" />
     </js-module>
+
+    <dependency
+      id="es6-promise-plugin"
+      url="https://github.com/vstirbu/PromisesPlugin.git">
+    </dependency>
 
     <!-- android -->
     <platform name="android">
@@ -22,6 +27,8 @@
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
+          <meta-data android:name="com.parse.APPLICATION_ID" android:value="$APP_ID" />
+          <meta-data android:name="com.parse.CLIENT_KEY" android:value="$CLIENT_KEY" />
           <service android:name="com.parse.PushService" />
           <receiver android:name="com.parse.ParseBroadcastReceiver">
             <intent-filter>
@@ -58,12 +65,10 @@
           <uses-permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" />
         </config-file>
 
-        <source-file src="src/android/parse/Parse-1.9.0.jar" target-dir="libs" framework="true" />
+        <source-file src="src/android/parse/Parse-1.10.0.jar" target-dir="libs" framework="true" />
         <source-file src="src/android/parse/bolts-android-1.1.4.jar" target-dir="libs" framework="true" />
         <source-file src="src/android/ParsePlugin.java" target-dir="src/com/medlei" />
         <source-file src="src/android/ParsePluginReceiver.java" target-dir="src/com/medlei" />
-        <source-file src="src/android/App.java" target-dir="src/com/medlei" />
-
         <source-file src="src/android/parseplugin.xml" target-dir="res/values" />
         <config-file target="res/values/parseplugin.xml" parent="/*">
             <string name="parse_app_id">$APP_ID</string>

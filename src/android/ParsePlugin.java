@@ -4,7 +4,7 @@ import android.app.Application;
 import android.util.Log;
 
 import java.util.Iterator;
-import java.util.Set;
+import java.util.List;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -40,11 +40,8 @@ public class ParsePlugin extends CordovaPlugin {
     private static JSONObject sLaunchNotification = null;
 
     public static void initializeParseWithApplication(Application app) {
-        String appId = getStringByKey(app, "parse_app_id");
-        String clientKey = getStringByKey(app, "parse_client_key");
         Parse.enableLocalDatastore(app);
-        Log.d(TAG, "Initializing with parse_app_id: " + appId + " and parse_client_key:" + clientKey);
-        Parse.initialize(app, appId, clientKey);
+        Parse.initialize(app);
     }
 
     private static String getStringByKey(Application app, String key) {
@@ -159,7 +156,7 @@ public class ParsePlugin extends CordovaPlugin {
     private void getSubscriptions(final CallbackContext callbackContext) {
         cordova.getThreadPool().execute(new Runnable() {
             public void run() {
-                 Set<String> subscriptions = PushService.getSubscriptions(cordova.getActivity());
+                 List<String> subscriptions = ParseInstallation.getCurrentInstallation().getList("channels");
                  callbackContext.success(subscriptions.toString());
             }
         });

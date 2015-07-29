@@ -1,29 +1,32 @@
 Phonegap Parse.com Plugin
 =========================
 
-Phonegap/Cordova 3.0+ plugin for Parse.com push service
+Phonegap/Cordova 3.0+ plugin for Parse.com push service. This plugin uses a modified version of Parse Android SDK to prevent the required Application class, and making it easier to use on Phonegap.
 
 Using [Parse.com's](http://parse.com) REST API for push requires the installation id, which isn't available in JS
 
-This plugin exposes native API push services to JS:
-* <a href="https://www.parse.com/docs/android/api/com/parse/ParseInstallation.html#getInstallationId()">getInstallationId</a>
-* <a href="https://www.parse.com/docs/android/api/com/parse/PushService.html#getSubscriptions(android.content.Context)">getSubscriptions</a>
-* <a href="https://www.parse.com/docs/android/api/com/parse/PushService.html#subscribe(android.content.Context, java.lang.String, java.lang.Class, int)">subscribe</a>
-* <a href="https://www.parse.com/docs/android/api/com/parse/PushService.html#unsubscribe(android.content.Context, java.lang.String)">unsubscribe</a>
-* <a href="https://parse.com/docs/osx/api/Classes/PFAnalytics.html#//api/name/trackEvent:dimensions:">trackEvent (iOS only)</a>
-
-As well as other utility methods:
-* registerCallback: allows us to get the notification back in javascript
-* resetBadge: resets the badge to 0 (iOS only) --this can also be accomplished by setting the badge to 0 in the _Installation table using the <a href="https://parse.com/docs/rest/guide#objects-updating-objects">Parse REST API</a>
+Features
+--------
+* Initialise Parse from JS
+* Add, Remove and List subscriptions to channels
+* Build on Phonegap Builder
 
 Installation
 ------------
 
-Pick one of these two commands:
+To install plugin locally use:
 
 ```
-phonegap local plugin add https://github.com/grrrian/phonegap-parse-plugin --variable APP_ID=PARSE_APP_ID --variable CLIENT_KEY=PARSE_CLIENT_KEY
-cordova plugin add https://github.com/grrrian/phonegap-parse-plugin --variable APP_ID=PARSE_APP_ID --variable CLIENT_KEY=PARSE_CLIENT_KEY
+phonegap local plugin add https://github.com/ropilz/phonegap-parse-plugin --variable APP_ID=PARSE_APP_ID --variable CLIENT_KEY=PARSE_CLIENT_KEY
+cordova plugin add https://github.com/ropilz/phonegap-parse-plugin --variable APP_ID=PARSE_APP_ID --variable CLIENT_KEY=PARSE_CLIENT_KEY
+```
+
+To use plugin on Phonegap Builder use:
+```xml
+<gap:plugin name="com.medlei.pushplugin" version="0.1.1" >
+        <param name="APP_ID" value="PARSE_APP_ID" />
+        <param name="CLIENT_KEY" value="PARSE_CLIENT_KEY" />
+</gap:plugin>
 ```
 
 Initial Setup
