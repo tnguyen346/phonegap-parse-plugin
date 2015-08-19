@@ -1,0 +1,28 @@
+{
+  "name":"com.medlei.parsepushplugin",
+  "version":"0.1.2",
+  "description":"Parse plugin to support push notifications",
+  "keywords":[
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "parse",
+    "push notification",
+    "push",
+    "PN",
+    "android",
+    "ios"
+  ],
+  "repository" : {
+     "type" : "git",
+     "url" : "https://github.com/ropilz/phonegap-parse-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ropilz/phonegap-parse-plugin/issues"
+  },
+  "dependencies" : {
+    "es6-promise-plugin":"vstirbu/PromisesPlugin"
+  },
+  "license":"MIT"
+
+}

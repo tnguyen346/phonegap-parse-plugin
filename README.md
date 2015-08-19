@@ -17,13 +17,13 @@ Installation
 To install plugin locally use:
 
 ```
-phonegap local plugin add https://github.com/ropilz/phonegap-parse-plugin --variable APP_ID=PARSE_APP_ID --variable CLIENT_KEY=PARSE_CLIENT_KEY
-cordova plugin add https://github.com/ropilz/phonegap-parse-plugin --variable APP_ID=PARSE_APP_ID --variable CLIENT_KEY=PARSE_CLIENT_KEY
+phonegap local plugin add com.medlei.parsepushplugin --variable APP_ID=PARSE_APP_ID --variable CLIENT_KEY=PARSE_CLIENT_KEY
+cordova plugin add com.medlei.parsepushplugin --variable APP_ID=PARSE_APP_ID --variable CLIENT_KEY=PARSE_CLIENT_KEY
 ```
 
 To use plugin on Phonegap Builder use:
 ```xml
-<gap:plugin name="com.medlei.pushplugin" version="0.1.2" >
+<gap:plugin name="com.medlei.parsepushplugin" version="0.1.2" >
         <param name="APP_ID" value="PARSE_APP_ID" />
         <param name="CLIENT_KEY" value="PARSE_CLIENT_KEY" />
 </gap:plugin>
