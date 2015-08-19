@@ -23,7 +23,7 @@ cordova plugin add https://github.com/ropilz/phonegap-parse-plugin --variable AP
 
 To use plugin on Phonegap Builder use:
 ```xml
-<gap:plugin name="com.medlei.pushplugin" version="0.1.1" >
+<gap:plugin name="com.medlei.pushplugin" version="0.1.2" >
         <param name="APP_ID" value="PARSE_APP_ID" />
         <param name="CLIENT_KEY" value="PARSE_CLIENT_KEY" />
 </gap:plugin>
