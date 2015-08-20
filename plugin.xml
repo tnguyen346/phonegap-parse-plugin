@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
            id="com.medlei.pushplugin"
-      version="1.0.0">
+      version="0.1.2">
     <name>phonegap-parse-plugin</name>
     <description>phonegap parse plugin</description>
 
