@@ -1,15 +1,14 @@
-Phonegap Parse.com Plugin
-=========================
+Phonegap/Cordova Parse.com Plugin
+=================================
 
-Phonegap/Cordova 3.0+ plugin for Parse.com push service. This plugin uses a modified version of Parse Android SDK to prevent the required Application class, and making it easier to use on Phonegap.
-
-Using [Parse.com's](http://parse.com) REST API for push requires the installation id, which isn't available in JS
+Phonegap/Cordova 3.0+ plugin for Parse.com push service. This plugin uses a [modified version of Parse Android SDK](https://github.com/ropilz/Parse-SDK-Android) to prevent the required Application class, and making it easier to use on Phonegap and Cordova.
 
 Features
 --------
 * Initialise Parse from JS
 * Add, Remove and List subscriptions to channels
 * Build on Phonegap Builder
+* Badge Counter on iOS and Android (Samsung and Xperia launchers only)
 
 Installation
 ------------
@@ -17,13 +16,13 @@ Installation
 To install plugin locally use:
 
 ```
-phonegap local plugin add com.medlei.parsepushplugin --variable APP_ID=PARSE_APP_ID --variable CLIENT_KEY=PARSE_CLIENT_KEY
-cordova plugin add com.medlei.parsepushplugin --variable APP_ID=PARSE_APP_ID --variable CLIENT_KEY=PARSE_CLIENT_KEY
+phonegap local plugin add medlei-parse-push-plugin --variable APP_ID=PARSE_APP_ID --variable CLIENT_KEY=PARSE_CLIENT_KEY
+cordova plugin add medlei-parse-push-plugin --variable APP_ID=PARSE_APP_ID --variable CLIENT_KEY=PARSE_CLIENT_KEY
 ```
 
 To use plugin on Phonegap Builder use:
 ```xml
-<gap:plugin name="com.medlei.parsepushplugin" version="0.1.2" >
+<gap:plugin name="medlei-parse-push-plugin" version="~0.1" >
         <param name="APP_ID" value="PARSE_APP_ID" />
         <param name="CLIENT_KEY" value="PARSE_CLIENT_KEY" />
 </gap:plugin>
@@ -155,39 +154,6 @@ Usage
   });
 </script>
 ```
-
-Quirks
-------
-
-### Android
-
-Parse needs to be initialized once in the `onCreate` method of your application class using the `initializeParseWithApplication` method.
-
-If you don’t have an application class (which is most likely the case for a Cordova app), you can create one using this template:
-
-```java
-package my.package.namespace;
-
-import android.app.Application;
-import org.apache.cordova.core.ParsePlugin;
-
-public class App extends Application {
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        ParsePlugin.initializeParseWithApplication(this);
-    }
-
-}
-```
-
-And add your application name to `AndroidManifest.xml`:
-
-```xml
-<application android:name="my.package.namespace.App" ... >...</application>
-```
-
 
 Compatibility
 -------------

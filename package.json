@@ -1,6 +1,6 @@
 {
-  "name":"com.medlei.parsepushplugin",
-  "version":"0.1.2",
+  "name":"medlei-parse-push-plugin",
+  "version":"0.1.3",
   "description":"Parse plugin to support push notifications",
   "keywords":[
     "ecosystem:cordova",
