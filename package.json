@@ -1,17 +1,11 @@
 {
-  "name":"com.medlei.parsepushplugin",
-  "version":"0.1.2",
+  "name":"com.medlei.pushplugin",
+  "version":"1.0.0",
   "description":"Parse plugin to support push notifications",
   "keywords":[
     "ecosystem:cordova",
     "cordova-android",
-    "cordova-ios",
-    "parse",
-    "push notification",
-    "push",
-    "PN",
-    "android",
-    "ios"
+    "cordova-ios"
   ],
   "repository" : {
      "type" : "git",
