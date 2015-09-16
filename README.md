@@ -16,16 +16,13 @@ Installation
 To install plugin locally use:
 
 ```
-phonegap local plugin add medlei-parse-push-plugin --variable APP_ID=PARSE_APP_ID --variable CLIENT_KEY=PARSE_CLIENT_KEY
-cordova plugin add medlei-parse-push-plugin --variable APP_ID=PARSE_APP_ID --variable CLIENT_KEY=PARSE_CLIENT_KEY
+phonegap plugin add phonegap-parse-push-plugin
+cordova plugin add phonegap-parse-push-plugin
 ```
 
 To use plugin on Phonegap Builder use:
 ```xml
-<gap:plugin name="medlei-parse-push-plugin" version="~0.1" >
-        <param name="APP_ID" value="PARSE_APP_ID" />
-        <param name="CLIENT_KEY" value="PARSE_CLIENT_KEY" />
-</gap:plugin>
+<gap:plugin name="phonegap-parse-push-plugin" version="0.1.0" />
 ```
 
 Initial Setup
